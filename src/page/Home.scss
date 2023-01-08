@@ -1,0 +1,207 @@
+/* button {
+    display: block;
+    position: absolute;
+
+} */
+
+
+body {
+    margin: 0;
+    padding: 0;
+
+}
+
+/*  
+Thanks to: Usama Tahir
+https://medium.com/@AmJustSam
+*/
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    width: 100vw;
+    height: 100vh;
+}
+
+/* CSS which you need for blurred box */
+body {
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: top;
+    background-image: url("https://wallpapers.com/images/hd/wallpaper-valentines-day-hearts-lots-fly-love-m7tt0svylhvxbrvn.jpg");
+    width: 100%;
+    height: 100%;
+    font-family: Arial, Helvetica;
+    letter-spacing: 0.02em;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+}
+
+.blurred-box {
+    position: relative;
+    width: 250px;
+    height: 350px;
+    top: calc(50% - 175px);
+    left: calc(50% - 125px);
+    background: inherit;
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+.blurred-box:after {
+    content: '';
+    width: 300px;
+    height: 300px;
+    background: inherit;
+    position: absolute;
+    left: -25px;
+    left: 0;
+    position: 0;
+    right: 0;
+    top: -25px;
+    top: 0;
+    position: 0;
+    bottom: 0;
+    box-shadow: inset 0 0 0 200px rgba(255, 255, 255, 0.05);
+    filter: blur(10px);
+}
+
+
+/* Form which you dont need */
+.user-login-box {
+    position: relative;
+    margin-top: 50px;
+    text-align: center;
+    z-index: 1;
+}
+
+.user-login-box>* {
+    display: inline-block;
+    width: 100%;
+}
+
+.user-icon {
+    width: 100px;
+    height: 100px;
+    position: relative;
+    border-radius: 50%;
+    background-size: contain;
+    background-image: url(https://pbs.twimg.com/profile_images/725321660484583424/ArQ4fM3k.jpg);
+}
+
+.user-name {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    color: white;
+}
+
+input.user-password {
+    width: 120px;
+    height: 18px;
+    opacity: 0.4;
+    border-radius: 2px;
+    padding: 5px 15px;
+    border: 0;
+}
+
+.btn-yes {
+    margin-right: 20%;
+    border: none;
+    font-size: 14px;
+    padding: 13px 33px;
+    border-radius: 25px;
+    background-color: #70e1b2;
+    color: black;
+    font-weight: 700;
+
+}
+.btn-yes2{
+   
+    border: none;
+        font-size: 14px;
+        padding: 13px 33px;
+        border-radius: 25px;
+        background-color: #70e1b2;
+        color: black;
+        font-weight: 700;
+}
+
+.btn-no {
+    margin-left: 15%;
+    background-color: #f3aabb;
+    border: none;
+    font-size: 14px;
+    padding: 13px 33px;
+    border-radius: 25px;
+    color: black;
+    font-weight: 700;
+}
+
+
+// Update: September 2016, after a lot of grumbling, decided to simplify this. Cons: The color accuracy has gone down and mostly works on very dark or very light backgrounds. Pros: The code is far simpler and doesn't require doubling-up the text.
+
+@mixin gradient-text($gradient, $bg : 'light') {
+    @supports(mix-blend-mode: lighten) {
+        display: inline-block;
+        position: relative;
+
+        &::before {
+            content: '';
+            display: block;
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+
+            background: unquote($gradient);
+            pointer-events: none;
+        }
+
+        @if ($bg=='light') {
+            color: #000;
+            background: #fff;
+            mix-blend-mode: multiply;
+
+            &::before {
+                mix-blend-mode: screen;
+            }
+        }
+
+        @else {
+            color: #fff;
+            background: #000;
+            mix-blend-mode: lighten;
+
+            &::before {
+                mix-blend-mode: multiply;
+            }
+        }
+    }
+}
+
+section.light {
+   font-weight: 900;
+   
+
+    .gradient1 {
+        @include gradient-text('linear-gradient(to right,#23966c, #faaa54, #e23b4a, #db0768, #360670)', 'light');
+    }
+
+    .gradient2 {
+        @include gradient-text('radial-gradient(circle, #23966c, #faaa54, #e23b4a, #db0768, #360670)', 'light');
+    }
+}
+
+.form {
+    width: 400px;
+    height: 400px;
+    background-color: #fff;
+    color: #000;
+    margin: auto;
+    padding: auto;
+}
